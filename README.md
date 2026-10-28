@@ -70,6 +70,17 @@ Open **Settings (⌘,)** or use the **Look**, **Edge Light** and **Playback** me
 
 ## Install
 
+### Download (easiest)
+
+1. Download **`Lyrcing-1.0.0.dmg`** from the [latest release](https://github.com/yuvraj0011/lyrcing/releases/latest) (universal: Apple Silicon and Intel, macOS 14+).
+2. Open the DMG and drag **Lyrcing** into **Applications**.
+3. First launch: the build is not notarized by Apple yet, so macOS will warn about it.
+   - **macOS 14:** right-click the app → **Open** → **Open**.
+   - **macOS 15 or later:** try to open it once, then go to **System Settings → Privacy & Security**, scroll down and click **Open Anyway**.
+   - Or, in Terminal: `xattr -dr com.apple.quarantine /Applications/Lyrcing.app`
+
+You only have to do this once. If you would rather not run an unsigned download, build it yourself:
+
 ### Build from source
 
 Requires **macOS 14+** and the Xcode Command Line Tools (Swift 5.9+). Full Xcode is *not* required.
@@ -77,11 +88,11 @@ Requires **macOS 14+** and the Xcode Command Line Tools (Swift 5.9+). Full Xcode
 ```bash
 git clone https://github.com/yuvraj0011/lyrcing.git
 cd lyrcing
-./scripts/build_app.sh        # builds dist/Lyrcing.app and dist/Lyrcing.dmg
+./scripts/build_app.sh        # builds a universal dist/Lyrcing.app and dist/Lyrcing.dmg
 open dist/Lyrcing.app
 ```
 
-The app is ad-hoc signed. The first time you open a build, **right-click → Open** to get past Gatekeeper.
+A build you make yourself on your own Mac opens normally.
 
 ### First run
 

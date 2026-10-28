@@ -66,7 +66,7 @@ final class AppModel: ObservableObject {
     @Published private(set) var palette: Palette = .fallback
 
     // Settings (persisted)
-    @Published var lightingEnabled: Bool { didSet { save(lightingEnabled, "lightingEnabled"); NowPlayingMonitor.log("lightingEnabled=\(lightingEnabled)") } }
+    @Published var lightingEnabled: Bool { didSet { save(lightingEnabled, "lightingEnabled") } }
     @Published var lightMode: LightMode { didSet { save(lightMode.rawValue, "lightMode") } }
     @Published var customHue: Double { didSet { save(customHue, "customHue") } }
     @Published var intensity: Double { didSet { save(intensity, "intensity") } }

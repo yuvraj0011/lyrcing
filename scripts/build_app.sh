@@ -5,8 +5,10 @@ cd "$(dirname "$0")/.."
 APP=dist/Lyrcing.app
 rm -rf dist && mkdir -p $APP/Contents/{MacOS,Resources}
 
-swift build -c release
-cp "$(swift build -c release --show-bin-path)/Lyrcing" $APP/Contents/MacOS/Lyrcing
+# Universal binary: runs natively on Apple Silicon and Intel Macs
+ARCHS=(--arch arm64 --arch x86_64)
+swift build -c release $ARCHS
+cp "$(swift build -c release $ARCHS --show-bin-path)/Lyrcing" $APP/Contents/MacOS/Lyrcing
 
 cp Resources/emoji_index.json $APP/Contents/Resources/
 
