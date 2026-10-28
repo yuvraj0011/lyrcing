@@ -43,7 +43,9 @@ Lyrcing is a native macOS app that listens to what's playing in **Spotify** or *
 
 Open **Settings (⌘,)** or use the **Look**, **Edge Light** and **Playback** menus in the menu bar.
 
-<img src="docs/screenshots/settings.png" alt="Settings window" width="330" align="right">
+<div align="center">
+<img src="docs/screenshots/settings.png" alt="Settings window" width="380">
+</div>
 
 | Area | Options |
 | --- | --- |
