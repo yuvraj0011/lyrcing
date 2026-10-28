@@ -74,6 +74,10 @@ Open **Settings (⌘,)** or use the **Look**, **Edge Light** and **Playback** me
 
 ### Download (easiest)
 
+<div align="center">
+<img src="docs/screenshots/installer.png" alt="Lyrcing installer window: drag the app to Applications" width="560">
+</div>
+
 1. Download **`Lyrcing-1.0.0.dmg`** from the [latest release](https://github.com/yuvraj0011/lyrcing/releases/latest) (universal: Apple Silicon and Intel, macOS 14+).
 2. Open the DMG and drag **Lyrcing** into **Applications**.
 3. First launch: the build is not notarized by Apple yet, so macOS will warn about it.
@@ -91,6 +95,7 @@ Requires **macOS 14+** and the Xcode Command Line Tools (Swift 5.9+). Full Xcode
 git clone https://github.com/yuvraj0011/lyrcing.git
 cd lyrcing
 ./scripts/build_app.sh        # builds a universal dist/Lyrcing.app and dist/Lyrcing.dmg
+# optional: `pip install dmgbuild` first for the styled installer window
 open dist/Lyrcing.app
 ```
 

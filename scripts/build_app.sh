@@ -44,8 +44,14 @@ PLIST
 
 codesign --force --deep --sign - $APP
 
-# DMG with Applications shortcut
-STAGE=dist/dmg; mkdir -p $STAGE && cp -R $APP $STAGE/ && ln -s /Applications $STAGE/Applications
-hdiutil create -volname "Lyrcing" -srcfolder $STAGE -ov -format UDZO dist/Lyrcing.dmg >/dev/null
-rm -rf $STAGE
+# DMG. With `pip install dmgbuild` you get the styled installer window (background, arrow, icon layout);
+# without it a plain DMG with an Applications shortcut is created.
+if command -v dmgbuild >/dev/null 2>&1; then
+  dmgbuild -s scripts/dmg/settings.py -D app=$APP "Lyrcing" dist/Lyrcing.dmg >/dev/null
+else
+  echo "dmgbuild not found - making a plain DMG (pip install dmgbuild for the styled installer)"
+  STAGE=dist/dmg; mkdir -p $STAGE && cp -R $APP $STAGE/ && ln -s /Applications $STAGE/Applications
+  hdiutil create -volname "Lyrcing" -srcfolder $STAGE -ov -format UDZO dist/Lyrcing.dmg >/dev/null
+  rm -rf $STAGE
+fi
 echo "Built $(pwd)/dist/Lyrcing.dmg"
