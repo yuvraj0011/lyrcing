@@ -22,4 +22,5 @@ window_rect = ((200, 140), (660, 400))
 icon_size = 120
 text_size = 13
 arrange_by = None
+hide_extensions = [name]                      # show "Lyrcing", not "Lyrcing.app"
 icon_locations = {name: (170, 200), "Applications": (490, 200)}
